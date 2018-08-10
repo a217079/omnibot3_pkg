@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<robot name="omnibot3" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find omnibot3_description)/urdf/base/base.urdf.xacro"/>
+  <xacro:include filename="$(find omnibot3_description)/urdf/wheel/wheel.urdf.xacro"/>
+
+  <!-- =============== Link & Joint =============== -->
+  <!-- Base -->
+  <link name="base_footprint"/>
+  <xacro:base parent="base_footprint">
+    <origin xyz="0 0 0"/>
+  </xacro:base>
+
+
+  <!-- Wheels -->
+  <!-- Wheel1 -->
+  <xacro:wheel id_num="1" parent="base_link">
+    <origin rpy="0 0 ${11*M_PI/6}" xyz="${0.07*cos(M_PI/6)*cos(M_PI/3)} ${-0.07*cos(5*M_PI/6)*sin(M_PI/3)} 0.025"/>
+  </xacro:wheel>
+
+  <!-- Wheel2 -->
+  <xacro:wheel id_num="2" parent="base_link">
+    <origin rpy="0 0 ${M_PI/2}" xyz="${0.07*cos(5*M_PI/6)} 0 0.025"/>
+  </xacro:wheel>
+
+  <!-- Wheel3 -->
+  <xacro:wheel id_num="3" parent="base_link">
+    <origin rpy="0 0 ${7*M_PI/6}" xyz="${0.07*cos(M_PI/6)*cos(5*M_PI/3)} ${-0.07*cos(5*M_PI/6)*sin(5*M_PI/3)} 0.025"/>
+  </xacro:wheel>
+
+  
+  <!-- =============== Transmission =============== -->
+  <xacro:wheel_trans id_num="1"/>
+  <xacro:wheel_trans id_num="2"/>
+  <xacro:wheel_trans id_num="3"/>
+
+
+  <!-- =============== Gazebo =============== -->
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotNamespace>omnibot3</robotNamespace>
+    </plugin>
+  </gazebo>
+
+  <!-- Base -->
+  <xacro:base_gazebo/>
+
+  <!-- Wheels -->
+  <xacro:wheel_gazebo id_num="1"/>
+  <xacro:wheel_gazebo id_num="2"/>
+  <xacro:wheel_gazebo id_num="3"/>
+
+</robot>

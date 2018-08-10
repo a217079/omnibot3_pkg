@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find omnibot3_description)/urdf/common.xacro"/>
+  <xacro:include filename="$(find omnibot3_description)/urdf/wheel/wheel.transmission.xacro"/>
+  <xacro:include filename="$(find omnibot3_description)/urdf/wheel/wheel.gazebo.xacro"/>
+
+  <property name="wheel_radius" value="0.05"/>
+  <property name="wheel_length" value="0.03"/>
+  <property name="wheel_mass" value="0.32"/>
+
+  <xacro:macro name="wheel" params="id_num parent *joint_origin">
+    <joint name="wheel${id_num}_joint" type="continuous">
+      <insert_block name="joint_origin"/>
+      <axis xyz="0 1 0"/>
+      <parent link="${parent}"/>
+      <child link="wheel${id_num}_link"/>
+    </joint>
+
+    <link name="wheel${id_num}_link">
+      <visual>
+        <geometry>
+          <mesh filename="package://omnibot3_description/meshes/wheel.STL"/>
+        </geometry>
+      </visual>
+      <collision>
+        <origin xyz="0 0.015 0" rpy="${M_PI/2} 0 0"/>
+        <geometry>
+          <cylinder radius="${wheel_radius}" length="${wheel_length}"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <origin xyz="0 0.015 0" rpy="${M_PI/2} 0 0"/>
+        <cylinder_inertial mass="${wheel_mass}" radius="${wheel_radius}" length="${wheel_length}"/>
+      </inertial>
+    </link>
+  </xacro:macro>
+
+</robot>
