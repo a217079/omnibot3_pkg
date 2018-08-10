@@ -1,0 +1,17 @@
+omnibot3:
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50
+
+  # Wheel Controllers
+  wheel1_controller:
+    type: velocity_controllers/JointVelocityController
+    joint: wheel1_joint
+  
+  wheel2_controller:
+    type: velocity_controllers/JointVelocityController
+    joint: wheel2_joint
+
+  wheel3_controller:
+    type: velocity_controllers/JointVelocityController
+    joint: wheel3_joint

@@ -1,0 +1,14 @@
+<launch>
+  
+  <!-- Load joint controller configuration from YAML file to parameter sever -->
+  <rosparam file="$(find omnibot3_control)/config/controller.yaml" command="load"/>
+
+  <!-- load the controllers -->
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" ns="omnibot3" output="screen" args="joint_state_controller wheel1_controller wheel2_controller wheel3_controller">
+  </node>
+
+  <!-- convert joint states to TF transform for rviz, etc -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen" ns="/omnibot3">
+  </node>
+
+</launch>
