@@ -15,3 +15,11 @@ include_directories(
   include
   ${catkin_INCLUDE_DIRS}
 )
+
+add_executable(drive_test_node
+  src/drive_test.cpp
+)
+
+target_link_libraries(drive_test_node
+  ${catkin_LIBRARIES}
+)
