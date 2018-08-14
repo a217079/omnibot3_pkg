@@ -4,7 +4,7 @@
 #include <cmath>
 
 #define MAX_SPEED 3
-#define STEP 0.01
+#define STEP 0.1
 
 int main(int argc, char **argv)
 {
