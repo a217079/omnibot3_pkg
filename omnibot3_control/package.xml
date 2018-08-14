@@ -2,7 +2,9 @@
 <package format="2">
   <name>omnibot3_control</name>
   <version>1.0.0</version>
-  <description>The omnibot3_control package</description>
+  <description>
+  This package provide omnibot3's controller
+  </description>
 
 
   <maintainer email="a217079@ns.kogakuin.ac.jp">Tatsuya Horikoshi</maintainer>
