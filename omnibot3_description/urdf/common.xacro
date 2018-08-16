@@ -7,7 +7,8 @@
     <inertia ixx="${((radius*radius)/4 + (length*length)/12)*mass}" ixy="0" ixz="0" iyy="${((radius*radius)/4 + (length*length)/12)*mass}" iyz="0" izz="${(mass*radius*radius)/2}"/>
   </xacro:macro>
 
-  <xacro:macro name="box_inertial" param="mass height width depth">
+  <xacro:macro name="box_inertial" params="mass height width depth">
+    <mass value="${mass}"/>
     <inertia ixx="${(mass*(width*width+depth*depth))/12}" ixy="0" ixz="0" iyy="${(mass*(height*height+depth*depth))/12}" iyz="0" izz="${(mass*(height*height+width*width))/12}"/>
   </xacro:macro>
 </robot>
