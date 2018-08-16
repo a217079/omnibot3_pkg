@@ -11,8 +11,10 @@
   <author email="a217079@ne.kogakuin.ac.jp">Tatsuya Horikoshi</author>
 
   <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>sensor_msgs</build_depend>
   <build_depend>std_msgs</build_depend>
   <build_depend>roscpp</build_depend>
+  <exec_depend>sensor_msgs</exec_depend>
   <exec_depend>std_msgs</exec_depend>
   <exec_depend>roscpp</exec_depend>
 
