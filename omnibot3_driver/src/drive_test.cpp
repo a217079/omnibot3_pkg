@@ -3,8 +3,8 @@
 
 #include <cmath>
 
-#define MAX_SPEED 3
-#define STEP 0.1
+#define MAX_SPEED 9
+#define STEP 0.02
 
 int main(int argc, char **argv)
 {
@@ -26,8 +26,8 @@ int main(int argc, char **argv)
     
     // set each velocity (rad/s)
     wheel1_vel.data = MAX_SPEED * sin(count * STEP);
-    wheel2_vel.data = 0;
-    wheel3_vel.data = -1 * MAX_SPEED * sin(count * STEP);
+    wheel2_vel.data = MAX_SPEED * sin(count * STEP);
+    wheel3_vel.data = MAX_SPEED * sin(count * STEP);
 
     wheel1_vel_pub.publish(wheel1_vel);
     wheel2_vel_pub.publish(wheel2_vel);
